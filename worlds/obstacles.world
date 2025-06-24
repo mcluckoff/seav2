@@ -89,21 +89,8 @@
       <elevation>0</elevation>
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
-    <light name='sun' type='directional'>
-      <cast_shadows>1</cast_shadows>
-      <pose>-6.53232 4.53725 10 0 -0 0</pose>
-      <diffuse>0.8 0.8 0.8 1</diffuse>
-      <specular>0.2 0.2 0.2 1</specular>
-      <attenuation>
-        <range>1000</range>
-        <constant>0.9</constant>
-        <linear>0.01</linear>
-        <quadratic>0.001</quadratic>
-      </attenuation>
-      <direction>-0.5 0.1 -0.9</direction>
-    </light>
     <model name='unit_cylinder'>
-      <pose>0.275786 -1.4018 0.5 0 -0 0</pose>
+      <pose>0.089986 -1.68706 0.5 0 -0 0</pose>
       <link name='link'>
         <inertial>
           <mass>1</mass>
@@ -157,8 +144,8 @@
         <kinematic>0</kinematic>
       </link>
     </model>
-    <model name='unit_cylinder_clone'>
-      <pose>0.052939 1.82064 0.499993 -5e-06 -5e-06 0</pose>
+    <model name='unit_cylinder_0'>
+      <pose>0.079774 2.00119 0.5 0 -0 0</pose>
       <link name='link'>
         <inertial>
           <mass>1</mass>
@@ -213,10 +200,10 @@
       </link>
     </model>
     <state world_name='default'>
-      <sim_time>112 816000000</sim_time>
-      <real_time>113 59489848</real_time>
-      <wall_time>1750355932 164804519</wall_time>
-      <iterations>112816</iterations>
+      <sim_time>60 153000000</sim_time>
+      <real_time>22 959702756</real_time>
+      <wall_time>1750788817 345459871</wall_time>
+      <iterations>22905</iterations>
       <model name='ground_plane'>
         <pose>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -228,20 +215,20 @@
         </link>
       </model>
       <model name='unit_cylinder'>
-        <pose>1.25533 -1.27044 0.499993 -5e-06 -5e-06 0</pose>
+        <pose>0.072697 -1.7073 0.499997 6e-06 4e-06 -4e-06</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>1.25533 -1.27044 0.499993 -5e-06 -5e-06 0</pose>
+          <pose>0.072697 -1.7073 0.499997 6e-06 4e-06 -4e-06</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
       </model>
-      <model name='unit_cylinder_clone'>
-        <pose>-1.07861 1.22754 0.499996 -5e-06 -5e-06 -2e-06</pose>
+      <model name='unit_cylinder_0'>
+        <pose>0.065622 2.00667 0.499993 4e-06 -4e-06 -1e-06</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>-1.07861 1.22754 0.499996 -5e-06 -5e-06 -2e-06</pose>
+          <pose>0.065622 2.00667 0.499993 4e-06 -4e-06 -1e-06</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
@@ -253,7 +240,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose>6.20879 -1.54355 2.75436 0 0.431643 2.74419</pose>
+        <pose>8.18609 -5.14398 5.43884 0 0.539643 2.64819</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>

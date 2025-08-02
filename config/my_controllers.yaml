@@ -11,10 +11,11 @@ controller_manager:
 
 acker_cont:
   ros__parameters:
-
     rear_wheels_names: [rear_right_wheel_joint, rear_left_wheel_joint]
     front_wheels_names: [front_right_steering_joint, front_left_steering_joint]
-    base_frame_id: footprint_link
+    odom_frame_id: odom
+    base_frame_id: base_link
+    enable_odom_tf: true 
 
     wheelbase: 0.6
     front_wheel_track: 0.42

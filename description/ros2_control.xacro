@@ -15,8 +15,8 @@
                 <param name="device">/dev/serial/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1.1.1:1.0-port0</param>
                 <param name="baud_rate">57600</param>
                 <param name="timeout_ms">2000</param>
-                <param name="enc_counts_per_rev_traction">4200</param>
-                <param name="enc_counts_per_rev_steering">4200</param>
+                <param name="enc_counts_per_rev_traction">210</param>
+                <param name="enc_counts_per_rev_steering">25</param>
                 <param name="pid_p">20</param>
                 <param name="pid_d">12</param>
                 <param name="pid_i">0</param>

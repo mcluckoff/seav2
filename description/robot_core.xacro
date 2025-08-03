@@ -33,13 +33,13 @@
 
     <!-- FOOTPRINT LINK -->
 
-    <joint name="footprint_joint" type="fixed">
+    <joint name="base_footprint_joint" type="fixed">
         <parent link="base_link" />
-        <child link="footprint_link" />
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <child link="base_footprint" />
+        <origin xyz="-0.1 0 0" rpy="0 0 0" />
     </joint>
     
-    <link name="footprint_link">
+    <link name="base_footprint">
 
     </link>
 

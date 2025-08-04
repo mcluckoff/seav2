@@ -80,7 +80,7 @@ def generate_launch_description():
     # Launch them all!
     return LaunchDescription([
         rsp,
-        joystick,
+        # joystick,
         delayed_controller_manager,
         delayed_ackermann_drive_spawner,
         delayed_joint_broad_spawner

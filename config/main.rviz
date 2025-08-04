@@ -81,11 +81,19 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        front_left_steering_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         front_left_wheel:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
+        front_right_steering_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         front_right_wheel:
           Alpha: 1
           Show Axes: false
@@ -125,9 +133,9 @@ Visualization Manager:
           Value: true
         chassis:
           Value: true
-        front_left_wheel:
+        front_left_steering_link:
           Value: true
-        front_right_wheel:
+        front_right_steering_link:
           Value: true
         laser_frame:
           Value: true
@@ -147,21 +155,6 @@ Visualization Manager:
       Tree:
         map:
           {}
-        odom:
-          base_link:
-            base_footprint:
-              {}
-            chassis:
-              laser_frame:
-                {}
-            front_left_wheel:
-              {}
-            front_right_wheel:
-              {}
-            rear_left_wheel:
-              {}
-            rear_right_wheel:
-              {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -202,7 +195,7 @@ Visualization Manager:
       Class: rviz_default_plugins/Map
       Color Scheme: map
       Draw Behind: false
-      Enabled: false
+      Enabled: true
       Name: Map
       Topic:
         Depth: 5
@@ -210,19 +203,19 @@ Visualization Manager:
         Filter size: 10
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: ""
+        Value: /map
       Update Topic:
         Depth: 5
         Durability Policy: Volatile
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: ""
+        Value: /map_updates
       Use Timestamp: false
-      Value: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: odom
+    Fixed Frame: map
     Frame Rate: 30
   Name: root
   Tools:
@@ -265,25 +258,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 2.088088035583496
+      Distance: 8.403606414794922
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.20422519743442535
-        Y: -0.11179886758327484
-        Z: -0.033978886902332306
+        X: 0.183441162109375
+        Y: 0.013822339475154877
+        Z: 0.015243181958794594
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.5553983449935913
+      Pitch: 0.6903982758522034
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 5.921733379364014
+      Yaw: 5.986734867095947
     Saved: ~
 Window Geometry:
   Displays:

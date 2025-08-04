@@ -80,22 +80,39 @@
 
     <joint name="front_left_steering_joint" type="revolute">
         <parent link="base_link"/>
-        <child link="front_left_wheel"/>
+        <child link="front_left_steering_link"/>
         <origin xyz="0.6 0.21 0" rpy="0 0 0"/>
         <axis xyz="0 0 1"/>
         <limit lower="-${pi/8}" upper="${pi/8}" effort="20" velocity="5"/> 
     </joint>
 
+    <link name="front_left_steering_link">
+        <xacro:inertial_cylinder mass="0.01" radius="0.1" length="0.08">
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+        </xacro:inertial_cylinder>
+    </link>
+
+    <!-- rotation -->
+
+    <joint name="front_left_wheel_joint" type="continuous">
+        <parent link="front_left_steering_link"/>
+        <child link="front_left_wheel"/>
+        <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+        <axis xyz="0 0 -1"/>
+        <dynamics friction="0.8" damping="0.5" /> <!-- TODO -->
+        <limit lower="-3.14159" upper="3.14159" effort="0" velocity="1" /> <!-- TODO -->
+    </joint>
+
     <link name="front_left_wheel">
         <visual>
-            <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
                 <cylinder radius="0.1" length="0.08"/>
             </geometry>
             <material name="black"/>
         </visual>
         <collision>
-            <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
                 <cylinder radius="0.1" length="0.08"/>
             </geometry>
@@ -117,22 +134,39 @@
 
     <joint name="front_right_steering_joint" type="revolute">
         <parent link="base_link"/>
-        <child link="front_right_wheel"/>
+        <child link="front_right_steering_link"/>
         <origin xyz="0.6 -0.21 0" rpy="0 0 0"/>
         <axis xyz="0 0 1"/>
         <limit lower="-${pi/8}" upper="${pi/8}" effort="20" velocity="5"/> 
     </joint>
 
+    <link name="front_right_steering_link">
+        <xacro:inertial_cylinder mass="0.01" radius="0.1" length="0.08">
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+        </xacro:inertial_cylinder>
+    </link>
+
+    <!-- rotation -->
+
+    <joint name="front_right_wheel_joint" type="continuous">
+        <parent link="front_right_steering_link"/>
+        <child link="front_right_wheel"/>
+        <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+        <axis xyz="0 0 -1"/>
+        <dynamics friction="0.8" damping="0.5" /> <!-- TODO -->
+        <limit lower="-3.14159" upper="3.14159" effort="0" velocity="1" /> <!-- TODO -->
+    </joint>
+
     <link name="front_right_wheel">
         <visual>
-            <origin xyz="0 0 0" rpy="-${pi/2} 0 0"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
                 <cylinder radius="0.1" length="0.08"/>
             </geometry>
             <material name="black"/>
         </visual>
         <collision>
-            <origin xyz="0 0 0" rpy="-${pi/2} 0 0"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
                 <cylinder radius="0.1" length="0.08"/>
             </geometry>

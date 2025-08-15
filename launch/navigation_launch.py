@@ -29,6 +29,7 @@ from nav2_common.launch import RewrittenYaml
 def generate_launch_description():
     # Get the launch directory
     bringup_dir = get_package_share_directory('seav2')
+    ackermann_bt = os.path.join(bringup_dir, 'config', 'ackermann_nav_to_pose.xml')
 
     namespace = LaunchConfiguration('namespace')
     use_sim_time = LaunchConfiguration('use_sim_time')
@@ -59,8 +60,12 @@ def generate_launch_description():
 
     # Create our own temporary YAML files that include substitutions
     param_substitutions = {
-        'use_sim_time': use_sim_time,
-        'autostart': autostart}
+    'use_sim_time': use_sim_time,
+    'autostart': autostart,
+    'bt_navigator.ros__parameters.default_nav_to_pose_bt_xml':
+        os.path.join(bringup_dir, 'config', 'ackermann_nav_to_pose.xml')
+    }
+
 
     configured_params = ParameterFile(
         RewrittenYaml(
@@ -157,7 +162,11 @@ def generate_launch_description():
                 output='screen',
                 respawn=use_respawn,
                 respawn_delay=2.0,
-                parameters=[configured_params],
+                parameters=[
+                    configured_params,
+                    {'default_nav_to_pose_bt_xml': ackermann_bt},
+                    {'default_nav_through_poses_bt_xml': ackermann_bt},  # reuse same minimal tree
+                ],
                 arguments=['--ros-args', '--log-level', log_level],
                 remappings=remappings),
             Node(

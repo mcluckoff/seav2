@@ -26,7 +26,11 @@ amcl:
     recovery_alpha_fast: 0.0
     recovery_alpha_slow: 0.0
     resample_interval: 1
-    robot_model_type: "nav2_amcl::DifferentialMotionModel"
+    robot_model_type: "nav2_amcl::AckermannMotionModel"
+    # Ackermann-specific parameters
+    min_turning_radius: 2.5
+    max_turning_radius: 10.0
+    wheelbase: 1.5
     save_pose_rate: 0.5
     sigma_hit: 0.2
     tf_broadcast: true
@@ -123,13 +127,14 @@ controller_server:
 
     progress_checker:
       plugin: "nav2_controller::SimpleProgressChecker"
-      required_movement_radius: 0.5
-      movement_time_allowance: 10.0
+      required_movement_radius: 0.3
+      movement_time_allowance: 15.0
     goal_checker:
       plugin: "nav2_controller::SimpleGoalChecker"
-      xy_goal_tolerance: 0.5
-      yaw_goal_tolerance: 0.01
+      xy_goal_tolerance: 1.0
+      yaw_goal_tolerance: 0.1
       stateful: True
+      goal_angle_tolerance: 0.2
     FollowPath:
       plugin: "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController"
       desired_linear_vel: 0.5  # Reduced from 2.0 to 0.5 m/s for much slower driving
@@ -140,8 +145,8 @@ controller_server:
       rotate_to_heading_angular_vel: 1.0  # Reduced from 2.2 to 1.0 rad/s
       transform_tolerance: 0.3
       use_velocity_scaled_lookahead_dist: false
-      min_approach_linear_velocity: 0.3  # Reduced from 1.0 to 0.3 m/s for slower approach
-      approach_velocity_scaling_dist: 0.1
+      min_approach_linear_velocity: 0.2  # Reduced from 1.0 to 0.2 m/s for slower approach
+      approach_velocity_scaling_dist: 0.5
       use_collision_detection: false
       max_allowed_time_to_collision_up_to_carrot: 1.5
       use_regulated_linear_velocity_scaling: false
@@ -173,7 +178,7 @@ local_costmap:
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
         cost_scaling_factor: 3.0
-        inflation_radius: 0.55
+        inflation_radius: 0.35
       voxel_layer:
         plugin: "nav2_costmap_2d::VoxelLayer"
         enabled: True
@@ -231,7 +236,7 @@ global_costmap:
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
         cost_scaling_factor: 3.0
-        inflation_radius: 0.55
+        inflation_radius: 0.35
       always_send_full_costmap: True
 
 map_server:
@@ -263,13 +268,13 @@ planner_server:
       max_iterations: 1000000             
       max_on_approach_iterations: 1000    
       max_planning_time: 5.0              
-      motion_model_for_search: "DUBIN"    
+      motion_model_for_search: "REEDS_SHEPP"    
       angle_quantization_bins: 72         
       analytic_expansion_ratio: 3.5       
       analytic_expansion_max_length: 3.0  
       analytic_expansion_max_cost: 200.0  
       analytic_expansion_max_cost_override: false 
-      minimum_turning_radius: 0.10    
+      minimum_turning_radius: 2.5    
       reverse_penalty: 2.0                
       change_penalty: 0.0                 
       non_straight_penalty: 1.0         

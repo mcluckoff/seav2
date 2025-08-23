@@ -23,6 +23,8 @@ acker_cont:
     rear_wheel_track: 0.42
     front_wheels_radius: 0.1
     rear_wheels_radius: 0.1 
+    max_steering_angle: 0.3927  # π/8 radians = 22.5 degrees
+    min_steering_angle: -0.3927 # -π/8 radians = -22.5 degrees
     
     use_stamped_vel: false
     # enable_odom_tf: true 
